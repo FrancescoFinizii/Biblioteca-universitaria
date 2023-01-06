@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>447</width>
+    <height>158</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Prestito</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(255, 255, 255);</string>
+  </property>
+  <property name="modal">
+   <bool>true</bool>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QWidget" name="widget" native="true">
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Effettuare il prestito del seguente documento:</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="widget_3" native="true">
+     <property name="styleSheet">
+      <string notr="true">border: 1px solid;
+border-color: rgb(0, 0, 0);</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_3">
+      <item>
+       <widget class="QLabel" name="documento">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+          <italic>true</italic>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border: None;</string>
+        </property>
+        <property name="text">
+         <string>documento</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="widget_2" native="true">
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="confermaButton">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton#confermaButton {
+	border: 1px solid;
+	background-color:rgb(230, 230, 230);
+	border-radius: 5px;
+	border-color: rgb(0, 0, 0);
+}
+QPushButton#confermaButton:hover {
+	background-color: rgb(207, 207, 207);
+}</string>
+        </property>
+        <property name="text">
+         <string>Conferma</string>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>../Resources/ok icon.png</normaloff>../Resources/ok icon.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="annullaButton">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton#annullaButton {
+	border: 1px solid;
+	background-color:rgb(230, 230, 230);
+	border-radius: 5px;
+	border-color: rgb(0, 0, 0);
+}
+QPushButton#annullaButton:hover {
+	background-color: rgb(207, 207, 207);
+}</string>
+        </property>
+        <property name="text">
+         <string>Annulla</string>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>../Resources/red x icon.png</normaloff>../Resources/red x icon.png</iconset>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

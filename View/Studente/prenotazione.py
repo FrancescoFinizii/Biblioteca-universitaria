@@ -18,7 +18,7 @@ class Prenotazione(QWidget):
         self.effettuaPrenotazioneButton.clicked.connect(self.aggiungiPrenotazione)
         self.calendarWidget.selectionChanged.connect(self.getPrenotazioniDisponibili)
         self.sedeInput.currentTextChanged.connect(self.getPrenotazioniDisponibili)
-        self.matricola = studentDashboard.studente.getMatricola()
+
         self.setDateRange()
         self.getPrenotazioniDisponibili()
 
@@ -29,11 +29,11 @@ class Prenotazione(QWidget):
         orarioChiusura = adesso.replace(hour=18, minute=30, second=0, microsecond=0)
         if adesso >= orarioChiusura:
             # nel caso in cui siano passate le 6:30 le prenotazioni iniziano dal giorno seguente
-            adesso = datetime.date.today() + datetime.timedelta(days=1)
-
+            adesso = datetime.date.today() + datetime.timedelta(days=7 - adesso.weekday() if adesso.weekday() > 4 else 1)
+        print(adesso.day)
         # Ciascun utente può effettuare una prenotazione a distanza massima di 3 giorni FERIALI dal giorno corrente
         giornoLimite = self.aggiungiGiorniFeriali(adesso, 2)
-
+        print(giornoLimite.day)
         # imposto il range di date in cui è possibile prenotarsi
         inizio = QDate(adesso.year, adesso.month, adesso.day)
         fine = QDate(giornoLimite.year, giornoLimite.month, giornoLimite.day)
@@ -59,22 +59,31 @@ class Prenotazione(QWidget):
             self.errorLabel.setText("")
 
             with open("Dati/prenotazioni.json", "r") as f:
-                self.jsonFile = json.load(f)
+                jsonFile = json.load(f)
 
             # lista fasce orarie biblioteca
-            self.fasciaOraria = list(self.jsonFile[self.sedeInput.currentText()][giornoSelezionato].keys())
+            self.fasciaOraria = list(jsonFile[self.sedeInput.currentText()][giornoSelezionato].keys())
 
             # lista numero studenti prenotati nelle singole fasce orarie
-            studentiFascia = list(self.jsonFile[self.sedeInput.currentText()][giornoSelezionato].values())
+            studentiFascia = list(jsonFile[self.sedeInput.currentText()][giornoSelezionato].values())
 
             # posizione dei bottoni all'interno del GridLayout
             posizioneBottoni = [(i, j) for i in range(7) for j in range(3)]
 
+            with open("config.json", "r") as p:
+                configJson = json.load(p)
+            postiMax = configJson["postiMax"][self.sedeInput.currentText()]
+
+            now = datetime.datetime.now()
             numBtn = 0
             for i in range(21):
                 numBtn += 1
-                if studentiFascia[i] < 2:
-                    self.aggiungiBottone(self.fasciaOraria[i], posizioneBottoni[i], numBtn)
+                if studentiFascia[i] < postiMax:
+                        if now.strftime("%A")[0:3] == giornoSelezionato:
+                            if now.time() < datetime.time(hour=int(self.fasciaOraria[i][0:2]), minute=int(self.fasciaOraria[i][3:5])):
+                                self.aggiungiBottone(self.fasciaOraria[i], posizioneBottoni[i], numBtn)
+                        else:
+                            self.aggiungiBottone(self.fasciaOraria[i], posizioneBottoni[i], numBtn)
         else:
             self.errorLabel.setText("Nessuna prenotazione disponibile")
 
@@ -124,7 +133,7 @@ class Prenotazione(QWidget):
                     oraFine = oraInzio.replace(hour=int(self.fasciaOraria[(lista[-1] - 1)][6:8]),
                                                minute=int(self.fasciaOraria[(lista[-1] - 1)][9:11]))
 
-                    if GestionePrenotazioni.getPrenotazione(self.matricola) == None:
+                    if GestionePrenotazioni.getPrenotazione(studentDashboard.studente.getMatricola()) == None:
                         GestionePrenotazioni.aggiungiPrenotazione(
                             matricolaStudente=studentDashboard.studente.getMatricola(),
                             sede=self.sedeInput.currentText(),
@@ -142,9 +151,9 @@ class Prenotazione(QWidget):
                         conferma.setText("Hai già effettuato una prenotazione\nDesideri sostituire quella già esistente")
                         conferma.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
                         if conferma.exec() == QMessageBox.Yes:
-                            GestionePrenotazioni.rimuoviPrenotazione(self.matricola)
+                            GestionePrenotazioni.rimuoviPrenotazione(studentDashboard.studente.getMatricola())
                             GestionePrenotazioni.aggiungiPrenotazione(
-                                matricolaStudente=self.matricola,
+                                matricolaStudente=studentDashboard.studente.getMatricola(),
                                 sede=self.sedeInput.currentText(),
                                 data=data,
                                 oraInizio=oraInzio,
@@ -165,7 +174,8 @@ class Prenotazione(QWidget):
             msgBox.setText("Limite fasce orarie superato (MAX:4)\nPrenotazione non effettuata")
         msgBox.exec()
 
-    def aggiungiGiorniFeriali(self, data, numeroGiorni):
+    @staticmethod
+    def aggiungiGiorniFeriali(data, numeroGiorni):
         while numeroGiorni > 0:
             data += datetime.timedelta(days=1)
             if data.weekday() > 4:  # SAB = 5, DOM = 6

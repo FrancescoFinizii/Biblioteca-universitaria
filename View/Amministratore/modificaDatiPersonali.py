@@ -1,5 +1,4 @@
 from datetime import date
-from time import daylight
 
 from PyQt5.QtCore import QDate
 from PyQt5.QtWidgets import QDialog

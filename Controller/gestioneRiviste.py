@@ -48,6 +48,7 @@ class GestioneRiviste(GestioneDocumenti):
             with open("Dati/Riviste.pickle", "wb") as f:
                 pickle.dump(riviste, f, pickle.HIGHEST_PROTOCOL)
 
+
     @staticmethod
     def incrementaQuantita(ISSN):
         with open("Dati/Riviste.pickle", "rb") as f:

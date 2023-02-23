@@ -13,7 +13,6 @@ class VisualizzaPrestito(QDialog):
         super(VisualizzaPrestito, self).__init__()
         loadUi("View/Studente/UI files/visualizza prestito.ui", self)
         self.codice.setText(prestito.getCodice())
-        self.matricola.setText(prestito.getMatricolaStudente())
         self.dataInizio.setText(prestito.getDataInizio().strftime("%d/%m/%Y"))
         self.dataScadenza.setText(prestito.getDataScadenza().strftime("%d/%m/%Y"))
         self.documento.setText(prestito.getDocumento().getID())
@@ -23,8 +22,8 @@ class VisualizzaPrestito(QDialog):
 
     def visualizzaDocumento(self):
         if GestioneLibri.getDocumento(self.documento.text()) != None:
-            self.visualizzaLibro = VisualizzaLibro(GestioneLibri.getDocumento(self.documento.text()))
-            self.visualizzaLibro.show()
+            visualizzaLibro = VisualizzaLibro(GestioneLibri.getDocumento(self.documento.text()))
+            visualizzaLibro.exec_()
         else:
-            self.visualizzaRivista = VisualizzaRivista(GestioneRiviste.getDocumento(self.documento.text()))
-            self.visualizzaRivista.show()
+            visualizzaRivista = VisualizzaRivista(GestioneRiviste.getDocumento(self.documento.text()))
+            visualizzaRivista.exec_()

@@ -22,6 +22,10 @@
   <property name="windowTitle">
    <string>Visualizza rivista</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../Resources/logo.png</normaloff>../Resources/logo.png</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(255, 255, 255);</string>
   </property>

@@ -77,3 +77,18 @@ class GestioneStudenti(GestioneUtenti):
                         lista.append(studente)
         return lista
 
+    @staticmethod
+    def sospendiAccount(matricola):
+        with open("Dati/Studenti.pickle", "rb") as f:
+            studenti = pickle.load(f)
+            studenti[matricola].setSospeso(True)
+        with open("Dati/Studenti.pickle", "wb") as f:
+            pickle.dump(studenti, f, pickle.HIGHEST_PROTOCOL)
+
+    @staticmethod
+    def attivaAccount(matricola):
+        with open("Dati/Studenti.pickle", "rb") as f:
+            studenti = pickle.load(f)
+            studenti[matricola].setSospeso(False)
+        with open("Dati/Studenti.pickle", "wb") as f:
+            pickle.dump(studenti, f, pickle.HIGHEST_PROTOCOL)

@@ -59,5 +59,3 @@ class ModificaLibro(QDialog):
             return True
         else:
             return False
-
-

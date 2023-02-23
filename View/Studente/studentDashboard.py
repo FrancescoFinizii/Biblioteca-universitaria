@@ -1,11 +1,12 @@
 import os
 import sys
+from webbrowser import open
 
 from PyQt5.QtWidgets import QMainWindow
 from PyQt5.uic import loadUi
 
 from Controller.gestioneStudenti import GestioneStudenti
-from View.Studente.catalogoUtente import CatalogoUtente
+from View.Studente.catalogo import Catalogo
 from View.Studente.prenotazione import Prenotazione
 from View.Studente.profilo import Profilo
 
@@ -20,6 +21,7 @@ class StudentDashboard(QMainWindow):
         global studente
         studente = utente
         self.homeButton.clicked.connect(self.goToHomePage)
+        self.link.clicked.connect(lambda: open("https://github.com/FrancescoFinizii/Biblioteca-universitaria.git"))
         self.catalogoButton.clicked.connect(self.goToCatalogoPage)
         self.prenotazioniButton.clicked.connect(self.goToPrenotazioniPage)
         self.profiloButton.clicked.connect(self.goToProfiloPage)
@@ -27,12 +29,14 @@ class StudentDashboard(QMainWindow):
         self.exitButton.clicked.connect(self.close)
 
 
+
+
     def goToHomePage(self):
         self.stackedWidget.setCurrentIndex(0)
 
 
     def goToCatalogoPage(self):
-        catalogo = CatalogoUtente()
+        catalogo = Catalogo()
         self.stackedWidget.insertWidget(1, catalogo)
         self.stackedWidget.setCurrentIndex(1)
 
@@ -57,4 +61,3 @@ class StudentDashboard(QMainWindow):
     def logout(self):
         self.close()
         os.execl(sys.executable, sys.executable, *sys.argv)
-

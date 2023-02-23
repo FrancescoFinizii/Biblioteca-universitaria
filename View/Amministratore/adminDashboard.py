@@ -5,10 +5,12 @@ from PyQt5.QtWidgets import QMainWindow
 from PyQt5.uic import loadUi
 
 from Controller.gestioneAmministratori import GestioneAmministratori
-from View.Amministratore.catalogo import Catalogo
-from View.Amministratore.prenotazioni import Prenotazioni
-from View.Amministratore.prestiti import Prestiti
-from View.Amministratore.profilo import Profilo
+from View.Amministratore.gestioneCatalogo import GestioneCatalogo
+from View.Amministratore.Prenotazioni import Prenotazioni
+from View.Amministratore.Prestiti import Prestiti
+from View.Amministratore.gestioneProfilo import GestioneProfilo
+from View.Amministratore.gestioneUtenti import GestioneUtenti
+
 
 
 class AdminDashboard(QMainWindow):
@@ -21,7 +23,9 @@ class AdminDashboard(QMainWindow):
         global amministratore
         amministratore = utente
         self.homeButton.clicked.connect(self.goToHome)
+        self.link.clicked.connect(lambda: open("https://github.com/FrancescoFinizii/Biblioteca-universitaria.git"))
         self.catalogoButton.clicked.connect(self.goToCatalogo)
+        self.gestioneUteniButton.clicked.connect(self.goToGestioneUteni)
         self.profiloButton.clicked.connect(self.goToProfiloPage)
         self.prestitiButton.clicked.connect(self.goToPrestiti)
         self.prenotazioniButton.clicked.connect(self.goToPrenotazioni)
@@ -34,7 +38,7 @@ class AdminDashboard(QMainWindow):
 
 
     def goToCatalogo(self):
-        catalogo = Catalogo()
+        catalogo = GestioneCatalogo()
         self.stackedWidget.insertWidget(1, catalogo)
         self.stackedWidget.setCurrentIndex(1)
 
@@ -51,15 +55,21 @@ class AdminDashboard(QMainWindow):
         self.stackedWidget.setCurrentIndex(3)
 
 
+    def goToGestioneUteni(self):
+        utenti = GestioneUtenti()
+        self.stackedWidget.insertWidget(4, utenti)
+        self.stackedWidget.setCurrentIndex(4)
+
+
     def goToProfiloPage(self):
         global amministratore
         if amministratore == None:
             self.logout()
         amministratore = GestioneAmministratori.getUtente(amministratore.getMatricola())
-        self.profilo = Profilo()
+        self.profilo = GestioneProfilo()
         self.profilo.sigg.connect(self.goToProfiloPage)
-        self.stackedWidget.insertWidget(4, self.profilo)
-        self.stackedWidget.setCurrentIndex(4)
+        self.stackedWidget.insertWidget(5, self.profilo)
+        self.stackedWidget.setCurrentIndex(5)
 
 
     def logout(self):

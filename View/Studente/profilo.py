@@ -1,4 +1,4 @@
-from PyQt5.QtCore import QDate, pyqtSignal
+from PyQt5.QtCore import pyqtSignal
 from PyQt5.QtWidgets import QWidget, QMessageBox
 from PyQt5.uic import loadUi
 
@@ -19,10 +19,6 @@ class Profilo(QWidget):
     def __init__(self):
         super(Profilo, self).__init__()
         loadUi("View/Studente/UI files/profilo.ui", self)
-        self.visualizzaPrestito1Button.clicked.connect(self.visualizzaPrestito1)
-        self.prorogaPrestito1Button.clicked.connect(self.prorogaPrestito1)
-        self.visualizzaPrestito2Button.clicked.connect(self.visualizzaPrestito2)
-        self.prorogaPrestito2Button.clicked.connect(self.prorogaPrestito2)
         self.modificaProfiloButton.clicked.connect(self.modificaDatiAnagrafici)
         self.modificaPasswordButton.clicked.connect(self.modificaPassword)
         self.eliminaAccountButton.clicked.connect(self.eliminaAccount)
@@ -32,9 +28,7 @@ class Profilo(QWidget):
         self.matricola.setText(studentDashboard.studente.getMatricola())
         self.nome.setText(studentDashboard.studente.getNome())
         self.cognome.setText(studentDashboard.studente.getCognome())
-        self.dataNascita.setDate(QDate(studentDashboard.studente.getDataNascita().year,
-                                       studentDashboard.studente.getDataNascita().month,
-                                       studentDashboard.studente.getDataNascita().day))
+        self.dataNascita.setText(studentDashboard.studente.getDataNascita().strftime("%d/%m/%y"))
         match len(GestionePrestiti.ricercaPrestitoPerMatricola(studentDashboard.studente.getMatricola())):
             case 0:
                 self.prestito1Widget.deleteLater()
@@ -42,20 +36,29 @@ class Profilo(QWidget):
             case 1:
                 self.prestitoLabel.deleteLater()
                 self.prestito2Widget.deleteLater()
-                self.codicePrestito1 = GestionePrestiti.ricercaPrestitoPerMatricola(studentDashboard.studente.getMatricola())[0].getCodice()
-                self.prestito1.setText("Prestito n° " + self.codicePrestito1)
-                if GestionePrestiti.getPrestito(self.codicePrestito1).getProrogato() == True:
+                codicePrestito1 = GestionePrestiti.ricercaPrestitoPerMatricola(studentDashboard.studente.getMatricola())[0].getCodice()
+                self.prestito1.setText("Prestito n° " + codicePrestito1)
+                if GestionePrestiti.getPrestito(codicePrestito1).getProrogato() == True:
                     self.prorogaPrestito1Button.deleteLater()
+                else:
+                    self.prorogaPrestito1Button.clicked.connect(lambda x: self.prorogaPrestito(codicePrestito1))
+                self.visualizzaPrestito1Button.clicked.connect(lambda x: self.visualizzaPrestito(codicePrestito1))
             case 2:
                 self.prestitoLabel.deleteLater()
-                self.codicePrestito1 =GestionePrestiti.ricercaPrestitoPerMatricola(studentDashboard.studente.getMatricola())[0].getCodice()
-                self.codicePrestito2 =GestionePrestiti.ricercaPrestitoPerMatricola(studentDashboard.studente.getMatricola())[1].getCodice()
-                self.prestito1.setText("Prestito n° " + self.codicePrestito1)
-                self.prestito2.setText("Prestito n° " + self.codicePrestito2)
-                if GestionePrestiti.getPrestito(self.codicePrestito1).getProrogato() == True:
+                codicePrestito1 =GestionePrestiti.ricercaPrestitoPerMatricola(studentDashboard.studente.getMatricola())[0].getCodice()
+                codicePrestito2 =GestionePrestiti.ricercaPrestitoPerMatricola(studentDashboard.studente.getMatricola())[1].getCodice()
+                self.prestito1.setText("Prestito n° " + codicePrestito1)
+                self.prestito2.setText("Prestito n° " + codicePrestito2)
+                if GestionePrestiti.getPrestito(codicePrestito1).getProrogato() == True:
                     self.prorogaPrestito1Button.deleteLater()
-                if GestionePrestiti.getPrestito(self.codicePrestito2).getProrogato() == True:
+                else:
+                    self.prorogaPrestito1Button.clicked.connect(lambda x: self.prorogaPrestito(codicePrestito1))
+                if GestionePrestiti.getPrestito(codicePrestito2).getProrogato() == True:
                     self.prorogaPrestito2Button.deleteLater()
+                else:
+                    self.prorogaPrestito2Button.clicked.connect(lambda x: self.prorogaPrestito(codicePrestito2))
+                self.visualizzaPrestito1Button.clicked.connect(lambda x: self.visualizzaPrestito(codicePrestito1))
+                self.visualizzaPrestito2Button.clicked.connect(lambda x: self.visualizzaPrestito(codicePrestito2))
         if GestionePrenotazioni.getPrenotazione(studentDashboard.studente.getMatricola()) == None:
             self.prenotazioniWidget.deleteLater()
         else:
@@ -63,13 +66,13 @@ class Profilo(QWidget):
             self.prenotazione.setText("Prenotazione")
 
 
-    def visualizzaPrestito1(self):
-        visualizzaPrestito = VisualizzaPrestito(GestionePrestiti.getPrestito(self.codicePrestito1))
+    def visualizzaPrestito(self, codicePrestito):
+        visualizzaPrestito = VisualizzaPrestito(GestionePrestiti.getPrestito(codicePrestito))
         visualizzaPrestito.exec_()
 
 
-    def prorogaPrestito1(self):
-        GestionePrestiti.prorogaScadenzaPrestito(self.codicePrestito1)
+    def prorogaPrestito(self, codicePrestito):
+        GestionePrestiti.prorogaScadenzaPrestito(codicePrestito)
         msgBox = QMessageBox()
         msgBox.setIcon(QMessageBox.Information)
         msgBox.setWindowTitle("Prestito")
@@ -77,35 +80,17 @@ class Profilo(QWidget):
         msgBox.setText("Prestito prorogato correttamente")
         msgBox.exec()
         self.close()
-
-
-
-    def visualizzaPrestito2(self):
-        visualizzaPrestito = VisualizzaPrestito(GestionePrestiti.getPrestito(self.codicePrestito2))
-        visualizzaPrestito.exec_()
-
-
-    def prorogaPrestito2(self):
-        GestionePrestiti.prorogaScadenzaPrestito(self.codicePrestito2)
-        msgBox = QMessageBox()
-        msgBox.setIcon(QMessageBox.Information)
-        msgBox.setWindowTitle("Prestito")
-        msgBox.setStandardButtons(QMessageBox.Ok)
-        msgBox.setText("Prestito prorogato correttamente")
-        msgBox.exec()
-        self.close()
-
 
 
     def modificaDatiAnagrafici(self):
-        self.modificaDatiPersonali = ModificaDatiPersonali()
-        if self.modificaDatiPersonali.exec_():
+        modificaDatiPersonali = ModificaDatiPersonali()
+        if modificaDatiPersonali.exec_():
             self.close()
 
 
     def modificaPassword(self):
-        self.modificaPassword = ModificaPassword()
-        if self.modificaPassword.exec_():
+        modificaPassword = ModificaPassword()
+        if modificaPassword.exec_():
             self.close()
 
 
@@ -135,8 +120,8 @@ class Profilo(QWidget):
 
 
     def visualizzaPrenotazione(self):
-        self.visualizzaPrenotazione = VisualizzaPrenotazione(GestionePrenotazioni.getPrenotazione(studentDashboard.studente.getMatricola()))
-        self.visualizzaPrenotazione.exec()
+        visualizzaPrenotazione = VisualizzaPrenotazione(GestionePrenotazioni.getPrenotazione(studentDashboard.studente.getMatricola()))
+        visualizzaPrenotazione.exec()
 
 
     def annullaPrenotazione(self):
@@ -148,6 +133,5 @@ class Profilo(QWidget):
         if msgBox.exec_() == QMessageBox.Yes:
             GestionePrenotazioni.rimuoviPrenotazione(studentDashboard.studente.getMatricola())
             self.close()
-
 
 

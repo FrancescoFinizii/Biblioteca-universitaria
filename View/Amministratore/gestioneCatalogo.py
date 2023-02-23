@@ -11,12 +11,12 @@ from View.Amministratore.visualizzaLibro import VisualizzaLibro
 from View.Amministratore.visualizzaRivista import VisualizzaRivista
 
 
-class Catalogo(QWidget):
+class GestioneCatalogo(QWidget):
 
 
     def __init__(self):
-        super(Catalogo, self).__init__()
-        loadUi("View/Amministratore/UI files/catalogo.ui", self)
+        super(GestioneCatalogo, self).__init__()
+        loadUi("View/Amministratore/UI files/gestione catalogo.ui", self)
         self.aggiungiDocumentoButton.clicked.connect(self.goToAggiungiDocumento)
         self.modificaDocumentoButton.clicked.connect(self.goToModificaDocumento)
         self.rimuoviDocumentoButton.clicked.connect(self.goToRimuoviDocumento)
@@ -34,30 +34,28 @@ class Catalogo(QWidget):
     def goToVisualizzaDocumento(self):
         if self.tableWidget.currentItem() != None:
             if self.tableWidget.item(self.tableWidget.currentRow(), 4).text() == "Libro":
-                self.visualizzaLibro = VisualizzaLibro(GestioneLibri.getDocumento(self.tableWidget.item(self.tableWidget.currentRow(), 2).text()))
-                self.visualizzaLibro.show()
+                visualizzaLibro = VisualizzaLibro(GestioneLibri.getDocumento(self.tableWidget.item(self.tableWidget.currentRow(), 2).text()))
+                visualizzaLibro.exec_()
             else:
-                self.visualizzaRivista = VisualizzaRivista(GestioneRiviste.getDocumento(self.tableWidget.item(self.tableWidget.currentRow(), 2).text()))
-                self.visualizzaRivista.show()
+                visualizzaRivista = VisualizzaRivista(GestioneRiviste.getDocumento(self.tableWidget.item(self.tableWidget.currentRow(), 2).text()))
+                visualizzaRivista.exec_()
 
 
     def goToAggiungiDocumento(self):
-        self.aggiungiDocumento = AggiungiDocumento()
-        if self.aggiungiDocumento.exec_():
+        aggiungiDocumento = AggiungiDocumento()
+        if aggiungiDocumento.exec_():
             self.ricercaDocumenti()
 
 
     def goToModificaDocumento(self):
         if self.tableWidget.currentItem() != None:
             if self.tableWidget.item(self.tableWidget.currentRow(), 4).text() == "Libro":
-                self.modificaLibro = ModificaLibro(GestioneLibri.getDocumento(self.tableWidget.item(self.tableWidget.currentRow(), 2).text()))
-                self.modificaLibro.show()
-                if self.modificaLibro.exec_():  # accepted
+                modificaLibro = ModificaLibro(GestioneLibri.getDocumento(self.tableWidget.item(self.tableWidget.currentRow(), 2).text()))
+                if modificaLibro.exec_():  # accepted
                     self.ricercaDocumenti()
             else:
-                self.modificaRivista = ModificaRivista(GestioneRiviste.getDocumento(self.tableWidget.item(self.tableWidget.currentRow(), 2).text()))
-                self.modificaRivista.show()
-                if self.modificaRivista.exec_():  # accepted
+                modificaRivista = ModificaRivista(GestioneRiviste.getDocumento(self.tableWidget.item(self.tableWidget.currentRow(), 2).text()))
+                if modificaRivista.exec_():  # accepted
                     self.ricercaDocumenti()
 
 
@@ -93,18 +91,21 @@ class Catalogo(QWidget):
                     listaDocumenti = GestioneLibri.ricercaDocumentoPerTitolo(self.searchInput.text()) + GestioneRiviste.ricercaDocumentoPerTitolo(self.searchInput.text())
                 else:
                     listaDocumenti = GestioneLibri.ricercaDocumentoPerAutore(self.searchInput.text()) + GestioneRiviste.ricercaDocumentoPerAutore(self.searchInput.text())
+        lista = []
         if self.checkBoxDisponibili.isChecked():
             for documento in listaDocumenti:
-                if documento.getDisponibilita() < 1:
-                    listaDocumenti.remove(documento)
-        if self.ordinamento.currentText() == "Titolo A-Z":
-            listaDocumenti.sort(key=lambda d: d.getTitolo())
+                if documento.getDisponibilita() > 0:
+                    lista.append(documento)
         else:
-            listaDocumenti.sort(key=lambda d: d.getTitolo(), reverse=True)
+            lista = listaDocumenti
+        if self.ordinamento.currentText() == "Titolo A-Z":
+            lista.sort(key=lambda d: d.getTitolo())
+        else:
+            lista.sort(key=lambda d: d.getTitolo(), reverse=True)
         row = 0
         self.tableWidget.clearContents()
-        self.tableWidget.setRowCount(len(listaDocumenti))
-        for documento in listaDocumenti:
+        self.tableWidget.setRowCount(len(lista))
+        for documento in lista:
             self.tableWidget.setItem(row, 0, QtWidgets.QTableWidgetItem(documento.getTitolo()))
             self.tableWidget.setItem(row, 1, QtWidgets.QTableWidgetItem(documento.getAutore()))
             self.tableWidget.setItem(row, 2, QtWidgets.QTableWidgetItem(documento.getID()))

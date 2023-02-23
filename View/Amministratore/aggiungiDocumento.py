@@ -15,10 +15,10 @@ class AggiungiDocumento(QDialog):
 
     def goToNextPage(self):
         if self.tipologiaDocumento.currentText() == "Libro":
-            self.aggiungiLibro = AggiungiLibro()
-            if self.aggiungiLibro.exec_():
+            aggiungiLibro = AggiungiLibro()
+            if aggiungiLibro.exec_():
                 self.accept()
         elif self.tipologiaDocumento.currentText() == "Rivista":
-            self.aggiungiRivista = AggiungiRivista()
-            if self.aggiungiRivista.exec_():
+            aggiungiRivista = AggiungiRivista()
+            if aggiungiRivista.exec_():
                 self.accept()

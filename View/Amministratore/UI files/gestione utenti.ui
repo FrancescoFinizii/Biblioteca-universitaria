@@ -6,12 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>692</width>
-    <height>797</height>
+    <width>652</width>
+    <height>802</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(255, 255, 255);</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -20,8 +23,11 @@
       <property name="spacing">
        <number>11</number>
       </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
       <property name="bottomMargin">
-       <number>25</number>
+       <number>10</number>
       </property>
       <item>
        <widget class="QLabel" name="label">
@@ -39,7 +45,7 @@
          </font>
         </property>
         <property name="text">
-         <string>Gestione prenotazioni</string>
+         <string>Gestione Utenti</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -130,68 +136,82 @@ border-radius: 25px;
             <string notr="true">border:None;</string>
            </property>
            <property name="placeholderText">
-            <string>ricerca matricola studente</string>
+            <string>search users</string>
            </property>
           </widget>
          </item>
-        </layout>
-       </widget>
-      </item>
-      <item>
-       <widget class="QWidget" name="widget_55" native="true">
-        <layout class="QHBoxLayout" name="horizontalLayout_23">
          <item>
-          <widget class="QLabel" name="label_39">
+          <widget class="QComboBox" name="cercaPer">
+           <property name="minimumSize">
+            <size>
+             <width>130</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>130</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>8</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">border: 1px solid;
+border-radius:None;</string>
+           </property>
+           <item>
+            <property name="text">
+             <string>Matricola</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Nome e cognome</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="cercaIn">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
              <horstretch>0</horstretch>
              <verstretch>0</verstretch>
             </sizepolicy>
            </property>
-           <property name="maximumSize">
+           <property name="minimumSize">
             <size>
-             <width>130</width>
-             <height>16777215</height>
+             <width>0</width>
+             <height>0</height>
             </size>
            </property>
-           <property name="font">
-            <font>
-             <pointsize>12</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>Sede:</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QComboBox" name="sedeInput">
-           <property name="font">
-            <font>
-             <pointsize>12</pointsize>
-            </font>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>30</height>
+            </size>
            </property>
            <property name="styleSheet">
-            <string notr="true">border: 1px solid;</string>
+            <string notr="true">border: 1px solid;
+border-radius:None;</string>
            </property>
            <item>
             <property name="text">
-             <string>Tutte le sedi</string>
+             <string>Tutto</string>
             </property>
            </item>
            <item>
             <property name="text">
-             <string>Biblioteca Economico-Giuridica-Sociologica</string>
+             <string>Studenti</string>
             </property>
            </item>
            <item>
             <property name="text">
-             <string>Biblioteca Tecnico-Scientifica-Biomedica</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Biblioteca Medica</string>
+             <string>Amministratori</string>
             </property>
            </item>
           </widget>
@@ -200,129 +220,99 @@ border-radius: 25px;
        </widget>
       </item>
       <item>
-       <widget class="QWidget" name="widget_56" native="true">
-        <layout class="QHBoxLayout" name="horizontalLayout_24">
-         <property name="rightMargin">
-          <number>150</number>
+       <widget class="QWidget" name="widget_2" native="true">
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <property name="topMargin">
+          <number>50</number>
          </property>
          <item>
-          <widget class="QLabel" name="label_40">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
+          <widget class="QTableWidget" name="tableWidget">
+           <property name="sortingEnabled">
+            <bool>false</bool>
            </property>
-           <property name="maximumSize">
-            <size>
-             <width>130</width>
-             <height>16777215</height>
-            </size>
+           <property name="cornerButtonEnabled">
+            <bool>true</bool>
            </property>
-           <property name="font">
-            <font>
-             <pointsize>12</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>Data:</string>
-           </property>
+           <column>
+            <property name="text">
+             <string>Matricola</string>
+            </property>
+            <property name="font">
+             <font>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Nome</string>
+            </property>
+            <property name="font">
+             <font>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Cognome</string>
+            </property>
+            <property name="font">
+             <font>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Tipologia</string>
+            </property>
+            <property name="font">
+             <font>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+           </column>
           </widget>
          </item>
          <item>
-          <widget class="QComboBox" name="ordineData">
-           <property name="font">
-            <font>
-             <pointsize>12</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">border: 1px solid;</string>
-           </property>
-           <item>
-            <property name="text">
-             <string>Crescente</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Decrescente</string>
-            </property>
-           </item>
+          <widget class="QWidget" name="widget_3" native="true">
+           <layout class="QVBoxLayout" name="verticalLayout_2">
+            <item>
+             <widget class="QPushButton" name="visualizzaUtenteButton">
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton#visualizzaUtenteButton {
+	border: 1px solid;
+	background-color:rgb(230, 230, 230);
+	border-radius: 5px;
+	border-color: rgb(0, 0, 0);
+}
+QPushButton#visualizzaUtenteButton:hover {
+	background-color: rgb(207, 207, 207);
+}</string>
+              </property>
+              <property name="text">
+               <string>Visualizza</string>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>../Resources/open file-icon.png</normaloff>../Resources/open file-icon.png</iconset>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </widget>
          </item>
         </layout>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item>
-    <widget class="QWidget" name="widget_63" native="true">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <layout class="QHBoxLayout" name="horizontalLayout_42">
-      <item>
-       <widget class="QTableWidget" name="tableWidget">
-        <column>
-         <property name="text">
-          <string>Matricola</string>
-         </property>
-         <property name="font">
-          <font>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Data</string>
-         </property>
-         <property name="font">
-          <font>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Ora arrivo</string>
-         </property>
-         <property name="font">
-          <font>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Ora andata</string>
-         </property>
-         <property name="font">
-          <font>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Sede</string>
-         </property>
-         <property name="font">
-          <font>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-        </column>
        </widget>
       </item>
      </layout>

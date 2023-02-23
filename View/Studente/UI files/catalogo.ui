@@ -6,12 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>682</width>
-    <height>846</height>
+    <width>691</width>
+    <height>853</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(255, 255, 255);</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -37,6 +40,9 @@
           <weight>75</weight>
           <bold>true</bold>
          </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
         </property>
         <property name="text">
          <string>CATALOGO</string>
@@ -100,7 +106,7 @@ border-radius: 25px;
             <string/>
            </property>
            <property name="pixmap">
-            <pixmap>../Resources/search-icon.png</pixmap>
+            <pixmap>../../Amministratore/Resources/search-icon.png</pixmap>
            </property>
            <property name="scaledContents">
             <bool>true</bool>
@@ -136,9 +142,15 @@ border-radius: 25px;
          </item>
          <item>
           <widget class="QComboBox" name="cercaPer">
+           <property name="minimumSize">
+            <size>
+             <width>70</width>
+             <height>0</height>
+            </size>
+           </property>
            <property name="maximumSize">
             <size>
-             <width>16777215</width>
+             <width>70</width>
              <height>30</height>
             </size>
            </property>
@@ -173,13 +185,13 @@ border-radius:None;</string>
            </property>
            <property name="minimumSize">
             <size>
-             <width>0</width>
+             <width>120</width>
              <height>0</height>
             </size>
            </property>
            <property name="maximumSize">
             <size>
-             <width>16777215</width>
+             <width>120</width>
              <height>30</height>
             </size>
            </property>
@@ -271,169 +283,132 @@ border-radius:None;</string>
         </layout>
        </widget>
       </item>
-     </layout>
-    </widget>
-   </item>
-   <item>
-    <widget class="QWidget" name="widget_63" native="true">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <layout class="QHBoxLayout" name="horizontalLayout_42">
       <item>
-       <widget class="QTableWidget" name="tableWidget">
-        <column>
-         <property name="text">
-          <string>Titolo</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Autore</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>ID</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Disponibilità</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Tipologia</string>
-         </property>
-        </column>
-       </widget>
-      </item>
-      <item>
-       <widget class="QWidget" name="widget_64" native="true">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>120</width>
-          <height>0</height>
-         </size>
-        </property>
-        <layout class="QVBoxLayout" name="verticalLayout_35">
+       <widget class="QWidget" name="widget_2" native="true">
+        <layout class="QHBoxLayout" name="horizontalLayout">
          <item>
-          <widget class="QPushButton" name="apriDocumentoButton">
-           <property name="font">
-            <font>
-             <pointsize>10</pointsize>
-            </font>
+          <widget class="QTableWidget" name="tableWidget">
+           <property name="sortingEnabled">
+            <bool>false</bool>
            </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton#apriDocumentoButton {
-	border: 1px solid;
-	background-color:rgb(230, 230, 230);
-	border-radius: 5px;
-	border-color: rgb(0, 0, 0);
-}
-QPushButton#apriDocumentoButton:hover {
-	background-color: rgb(207, 207, 207);
-}</string>
+           <property name="cornerButtonEnabled">
+            <bool>true</bool>
            </property>
-           <property name="text">
-            <string>Apri</string>
-           </property>
-           <property name="icon">
-            <iconset>
-             <normaloff>../Resources/open file-icon.png</normaloff>../Resources/open file-icon.png</iconset>
-           </property>
+           <column>
+            <property name="text">
+             <string>Titolo</string>
+            </property>
+            <property name="font">
+             <font>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Autore</string>
+            </property>
+            <property name="font">
+             <font>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>ID</string>
+            </property>
+            <property name="font">
+             <font>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Disponibilità</string>
+            </property>
+            <property name="font">
+             <font>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Tipologia</string>
+            </property>
+            <property name="font">
+             <font>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+           </column>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="aggiungiDocumentoButton">
-           <property name="font">
-            <font>
-             <pointsize>10</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton#aggiungiDocumentoButton {
+          <widget class="QWidget" name="widget_3" native="true">
+           <layout class="QVBoxLayout" name="verticalLayout_2">
+            <item>
+             <widget class="QPushButton" name="prenotaDocumentoButton">
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton#prenotaDocumentoButton {
 	border: 1px solid;
 	background-color:rgb(230, 230, 230);
 	border-radius: 5px;
 	border-color: rgb(0, 0, 0);
 }
-QPushButton#aggiungiDocumentoButton:hover {
+QPushButton#prenotaDocumentoButton:hover {
 	background-color: rgb(207, 207, 207);
 }</string>
-           </property>
-           <property name="text">
-            <string>Aggiungi</string>
-           </property>
-           <property name="icon">
-            <iconset>
-             <normaloff>../Resources/add-icon.png</normaloff>../Resources/add-icon.png</iconset>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="modificaDocumentoButton">
-           <property name="font">
-            <font>
-             <pointsize>10</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton#modificaDocumentoButton {
+              </property>
+              <property name="text">
+               <string>Prenota</string>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>../../Amministratore/Resources/book-icon.png</normaloff>../../Amministratore/Resources/book-icon.png</iconset>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="visualizzaDocumentoButton">
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton#visualizzaDocumentoButton {
 	border: 1px solid;
 	background-color:rgb(230, 230, 230);
 	border-radius: 5px;
 	border-color: rgb(0, 0, 0);
 }
-QPushButton#modificaDocumentoButton:hover {
+QPushButton#visualizzaDocumentoButton:hover {
 	background-color: rgb(207, 207, 207);
 }</string>
-           </property>
-           <property name="text">
-            <string>Modifica</string>
-           </property>
-           <property name="icon">
-            <iconset>
-             <normaloff>../Resources/edit icon.png</normaloff>../Resources/edit icon.png</iconset>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="rimuoviDocumentoButton">
-           <property name="font">
-            <font>
-             <pointsize>10</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton#rimuoviDocumentoButton {
-	border: 1px solid;
-	background-color:rgb(230, 230, 230);
-	border-radius: 5px;
-	border-color: rgb(0, 0, 0);
-}
-QPushButton#rimuoviDocumentoButton:hover {
-	
-	background-color: rgb(207, 207, 207);
-}</string>
-           </property>
-           <property name="text">
-            <string>Rimuovi</string>
-           </property>
-           <property name="icon">
-            <iconset>
-             <normaloff>../Resources/red x icon.png</normaloff>../Resources/red x icon.png</iconset>
-           </property>
+              </property>
+              <property name="text">
+               <string>Visualizza</string>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>../../Amministratore/Resources/open file-icon.png</normaloff>../../Amministratore/Resources/open file-icon.png</iconset>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </widget>
          </item>
         </layout>

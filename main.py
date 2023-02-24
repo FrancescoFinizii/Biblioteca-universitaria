@@ -5,7 +5,6 @@ import sys
 import time
 import schedule
 
-
 from PyQt5.QtWidgets import QApplication, QMessageBox
 from Controller.gestioneSchedule import GestioneSchedule
 from Controller.gestioneStudenti import GestioneStudenti

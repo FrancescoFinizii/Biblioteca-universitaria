@@ -3,7 +3,6 @@ import sys
 import time
 import schedule
 
-
 from PyQt5.QtWidgets import QApplication, QMessageBox
 from Controller.gestioneSchedule import GestioneSchedule
 from View.Generale.login import Login

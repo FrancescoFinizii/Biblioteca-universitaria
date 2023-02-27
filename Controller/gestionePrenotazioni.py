@@ -8,19 +8,22 @@ from Model.prenotazione import Prenotazione
 
 class GestionePrenotazioni:
 
+    dir_path = os.path.dirname(os.path.dirname(__file__))
+    percorsoFile = os.path.join(dir_path, 'Dati', "Prenotazioni.pickle")
+    percorsoJSONFile = os.path.join(dir_path, 'Dati', "prenotazioni.json")
 
     @staticmethod
     def aggiungiPrenotazione(matricolaStudente, sede, data, oraInizio, oraFine):
         prenotazione = Prenotazione(matricolaStudente, sede, data, oraInizio, oraFine)
-        if os.path.isfile("Dati/Prenotazioni.pickle"):
-            with open("Dati/Prenotazioni.pickle", "rb") as f:
+        if os.path.isfile(GestionePrenotazioni.percorsoFile):
+            with open(GestionePrenotazioni.percorsoFile, "rb") as f:
                 prenotazioni = pickle.load(f)
         else:
             prenotazioni = {}
         prenotazioni[matricolaStudente] = prenotazione
-        with open("Dati/Prenotazioni.pickle", "wb") as f:
+        with open(GestionePrenotazioni.percorsoFile, "wb") as f:
             pickle.dump(prenotazioni, f, pickle.HIGHEST_PROTOCOL)
-        with open("Dati/prenotazioni.json", "r") as f:
+        with open(GestionePrenotazioni.percorsoJSONFile, "r") as f:
             jsonFile = json.load(f)
         turni = list(jsonFile[sede][data.strftime("%A")[0:3]].keys())
         bool = False
@@ -30,22 +33,22 @@ class GestionePrenotazioni:
             if time(hour=int(turno[0:2]), minute=int(turno[3:5])) == oraInizio:
                 bool = True
                 jsonFile[sede][data.strftime("%A")[0:3]][turno] += 1
-        with open("Dati/prenotazioni.json", "w") as f:
+        with open(GestionePrenotazioni.percorsoJSONFile, "w") as f:
             json.dump(jsonFile, f)
 
 
     @staticmethod
     def rimuoviPrenotazione(matricolaStudente):
-        with open("Dati/Prenotazioni.pickle", "rb") as f:
+        with open(GestionePrenotazioni.percorsoFile, "rb") as f:
             prenotazioni = pickle.load(f)
             sede = prenotazioni[matricolaStudente].getSede()
             data = prenotazioni[matricolaStudente].getData()
             oraInizio = prenotazioni[matricolaStudente].getOraInizio()
             oraFine = prenotazioni[matricolaStudente].getOraFine()
             del prenotazioni[matricolaStudente]
-        with open("Dati/Prenotazioni.pickle", "wb") as f:
+        with open(GestionePrenotazioni.percorsoFile, "wb") as f:
             pickle.dump(prenotazioni, f, pickle.HIGHEST_PROTOCOL)
-        with open("Dati/prenotazioni.json", "r") as f:
+        with open(GestionePrenotazioni.percorsoJSONFile, "r") as f:
             jsonFile = json.load(f)
         turni = list(jsonFile[sede][data.strftime("%A")[0:3]].keys())
         bool = False
@@ -55,15 +58,15 @@ class GestionePrenotazioni:
             if time(hour=int(turno[0:2]), minute=int(turno[3:5])) == oraInizio:
                 bool = True
                 jsonFile[sede][data.strftime("%A")[0:3]][turno] -= 1
-        with open("Dati/prenotazioni.json", "w") as f:
+        with open(GestionePrenotazioni.percorsoJSONFile, "w") as f:
             json.dump(jsonFile, f)
 
 
 
     @staticmethod
     def getPrenotazione(matricolaStudente):
-        if os.path.isfile("Dati/Prenotazioni.pickle"):
-            with open("Dati/Prenotazioni.pickle", "rb") as f:
+        if os.path.isfile(GestionePrenotazioni.percorsoFile):
+            with open(GestionePrenotazioni.percorsoFile, "rb") as f:
                 prenotazioni = pickle.load(f)
                 return prenotazioni.get(matricolaStudente, None)
         else:
@@ -73,8 +76,8 @@ class GestionePrenotazioni:
     @staticmethod
     def ricercaPrenotazione(matricolaStudente, sede):
         lista = []
-        if os.path.isfile("Dati/Prenotazioni.pickle"):
-            with open("Dati/Prenotazioni.pickle", "rb") as f:
+        if os.path.isfile(GestionePrenotazioni.percorsoFile):
+            with open(GestionePrenotazioni.percorsoFile, "rb") as f:
                 prenotazioni = pickle.load(f)
                 for prenotazione in prenotazioni.values():
                     if matricolaStudente in prenotazione.getMatricolaStudente():

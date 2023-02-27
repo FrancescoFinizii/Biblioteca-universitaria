@@ -4,8 +4,6 @@ from PyQt5.QtWidgets import QWidget, QMessageBox
 from PyQt5.uic import loadUi
 
 from Controller.gestioneAmministratori import GestioneAmministratori
-from View.Amministratore.adminDashboard import AdminDashboard
-
 
 class RegistrazioneAmministratore(QWidget):
 
@@ -16,11 +14,11 @@ class RegistrazioneAmministratore(QWidget):
         self.creaAccountAmministratoreButton.clicked.connect(self.registrazioneAmministratore)
         self.registrazioneStudenteButton_2.clicked.connect(self.parent().goToRegistrazioneStudente)
         self.accediButton_2.clicked.connect(self.parent().goToLogin)
+        self.istanceOfParent = parent
 
 
     def registrazioneAmministratore(self):
-        if self.notEmpty(self.nome_input_2) and self.notEmpty(self.cognome_input_2) and self.notEmpty(self.matricola_input_2) \
-                and self.notEmpty(self.password_input_2) and self.notEmpty(self.conferma_password_input_2) and self.notEmpty(self.codiceConferma_input):
+        if self.istanceOfParent.notEmpty(self.nome_input_2, self.cognome_input_2, self.matricola_input_2, self.password_input_2, self.conferma_password_input_2, self.codiceConferma_input):
             if self.nome_input_2.text().isalpha() and self.cognome_input_2.text().isalpha():
                 if self.matricola_input_2.text().isdigit():
                     if self.password_input_2.text().isalnum and self.conferma_password_input_2.text().isalnum():
@@ -39,7 +37,7 @@ class RegistrazioneAmministratore(QWidget):
                                                                                                month=int(self.dataDiNascitaInput_2.date().toString("MM")),
                                                                                                day=int(self.dataDiNascitaInput_2.date().toString("dd"))),
                                                                               ruolo=self.ruolo_input.currentText())
-                                        self.goToAdminDashboard(GestioneAmministratori.getUtente(self.matricola_input_2.text()))
+                                        self.istanceOfParent.goToAdminDashboard(GestioneAmministratori.getUtente(self.matricola_input_2.text()))
                                     else:
 
                                         msgBox = QMessageBox()
@@ -62,18 +60,3 @@ class RegistrazioneAmministratore(QWidget):
                 self.error_label_2.setText("Nome e/o cognome non validi")
         else:
             self.error_label_2.setText("Non tutti i campi sono compilati")
-
-
-
-    def goToAdminDashboard(self, amministratore):
-        self.close()
-        self.adminDashboard = AdminDashboard(amministratore)
-        self.adminDashboard.show()
-
-
-    @staticmethod
-    def notEmpty(obj):
-        if not(obj.text().isspace()) and obj.text() != "":
-            return True
-        else:
-            return False

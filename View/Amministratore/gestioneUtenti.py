@@ -20,7 +20,7 @@ class GestioneUtenti(QWidget):
         self.cercaIn.currentTextChanged.connect(self.ricercaUtenti)
         self.tableWidget.setSelectionBehavior(QtWidgets.QTableView.SelectRows)
         self.tableWidget.setEditTriggers(QtWidgets.QTableWidget.NoEditTriggers)
-
+        self.ricercaUtenti()
 
 
     def ricercaUtenti(self):

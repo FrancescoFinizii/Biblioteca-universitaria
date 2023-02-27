@@ -25,6 +25,7 @@ class Login(QWidget):
         self.stackedWidget.insertWidget(2, registrazioneAmministratore)
 
 
+
     def goToLogin(self):
         self.stackedWidget.setCurrentIndex(0)
 
@@ -39,7 +40,7 @@ class Login(QWidget):
 
 
     def autenticazione(self):
-        if self.notEmpty(self.matricolaInput) and self.notEmpty(self.passwordInput):
+        if self.notEmpty(self.matricolaInput, self.passwordInput):
             if self.matricolaInput.text().isdigit():
                 if GestioneStudenti.getUtente(self.matricolaInput.text()) != None and GestioneStudenti.getUtente(self.matricolaInput.text()).getPassword()  == self.passwordInput.text():
                     if GestioneStudenti.getUtente(self.matricolaInput.text()).getSospeso():
@@ -70,11 +71,11 @@ class Login(QWidget):
         self.adminDashboard.show()
 
 
-    @staticmethod
-    def notEmpty(obj):
-        if not(obj.text().isspace()) and obj.text() != "":
-            return True
-        else:
-            return False
 
+    def notEmpty(self, *obj):
+        notEmptyy = True
+        for elem in obj:
+            if elem.text().isspace() or elem.text() == "":
+                notEmptyy = False
+        return notEmptyy
 

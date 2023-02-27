@@ -18,7 +18,6 @@ class Prenotazione(QWidget):
         self.effettuaPrenotazioneButton.clicked.connect(self.aggiungiPrenotazione)
         self.calendarWidget.selectionChanged.connect(self.getPrenotazioniDisponibili)
         self.sedeInput.currentTextChanged.connect(self.getPrenotazioniDisponibili)
-
         self.setDateRange()
         self.getPrenotazioniDisponibili()
 
@@ -29,11 +28,11 @@ class Prenotazione(QWidget):
         orarioChiusura = adesso.replace(hour=18, minute=30, second=0, microsecond=0)
         if adesso >= orarioChiusura:
             # nel caso in cui siano passate le 6:30 le prenotazioni iniziano dal giorno seguente
-            adesso = datetime.date.today() + datetime.timedelta(days=7 - adesso.weekday() if adesso.weekday() > 4 else 1)
-        print(adesso.day)
+            adesso = datetime.date.today() + datetime.timedelta(days=1)
+        if adesso.weekday() > 4:
+            adesso = datetime.date.today() + datetime.timedelta(days=7 - adesso.weekday())
         # Ciascun utente può effettuare una prenotazione a distanza massima di 3 giorni FERIALI dal giorno corrente
         giornoLimite = self.aggiungiGiorniFeriali(adesso, 2)
-        print(giornoLimite.day)
         # imposto il range di date in cui è possibile prenotarsi
         inizio = QDate(adesso.year, adesso.month, adesso.day)
         fine = QDate(giornoLimite.year, giornoLimite.month, giornoLimite.day)

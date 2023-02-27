@@ -688,7 +688,7 @@ QPushButton#prorogaPrestito2Button:hover {
             <string notr="true">color: rgb(221, 0, 0);</string>
            </property>
            <property name="text">
-            <string>Non è presente alcuna prenotazione</string>
+            <string>Nessuna prenotazione presente</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>

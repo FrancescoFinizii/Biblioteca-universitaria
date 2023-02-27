@@ -3,8 +3,6 @@ from PyQt5.QtWidgets import QWidget, QMessageBox
 from PyQt5.uic import loadUi
 
 from Controller.gestioneStudenti import GestioneStudenti
-from View.Studente.studentDashboard import StudentDashboard
-
 
 class RegistrazioneStudente(QWidget):
 
@@ -15,11 +13,12 @@ class RegistrazioneStudente(QWidget):
         self.creaAccountStudenteButton.clicked.connect(self.registrazioneStudente)
         self.accediButton.clicked.connect(self.parent().goToLogin)
         self.registrazioneAmministratoreButton_2.clicked.connect(self.parent().goToRegistrazioneAmministratore)
+        self.istanceOfParent = parent
 
 
 
     def registrazioneStudente(self):
-        if self.notEmpty(self.nome_input) and self.notEmpty(self.cognome_input) and self.notEmpty(self.matricola_input) and self.notEmpty(self.password_input) and self.notEmpty(self.conferma_password_input):
+        if self.istanceOfParent.notEmpty(self.nome_input, self.cognome_input, self.matricola_input, self.password_input, self.conferma_password_input):
             if self.nome_input.text().isalpha() and self.cognome_input.text().isalpha():
                 if self.matricola_input.text().isdigit():
                     if self.password_input.text().isalnum and self.conferma_password_input.text().isalnum():
@@ -33,7 +32,7 @@ class RegistrazioneStudente(QWidget):
                                                                     dataNascita=date(year=int(self.dataDiNascitaInput.date().toString("yyyy")),
                                                                                      month=int(self.dataDiNascitaInput.date().toString("MM")),
                                                                                      day=int(self.dataDiNascitaInput.date().toString("dd"))))
-                                    self.goToStudentDashboard(GestioneStudenti.getUtente(self.matricola_input.text()))
+                                    self.istanceOfParent.goToStudentDashboard(GestioneStudenti.getUtente(self.matricola_input.text()))
                                 else:
 
                                     msgBox = QMessageBox()
@@ -54,18 +53,3 @@ class RegistrazioneStudente(QWidget):
                 self.error_label.setText("Nome e/o cognome non validi")
         else:
             self.error_label.setText("Non tutti i campi sono compilati")
-
-
-
-    def goToStudentDashboard(self, studente):
-        self.close()
-        self.studentDashboard = StudentDashboard(studente)
-        self.studentDashboard.show()
-
-
-    @staticmethod
-    def notEmpty(obj):
-        if not(obj.text().isspace()) and obj.text() != "":
-            return True
-        else:
-            return False

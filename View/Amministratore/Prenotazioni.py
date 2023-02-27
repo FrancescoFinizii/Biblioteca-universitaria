@@ -1,5 +1,5 @@
 from PyQt5 import QtWidgets
-from PyQt5.QtWidgets import QWidget
+from PyQt5.QtWidgets import QWidget, QHeaderView
 from PyQt5.uic import loadUi
 
 from Controller.gestionePrenotazioni import GestionePrenotazioni
@@ -33,4 +33,5 @@ class Prenotazioni(QWidget):
             self.tableWidget.setItem(row, 1, QtWidgets.QTableWidgetItem(prenotazione.getData().strftime("%d/%m/%Y")))
             self.tableWidget.setItem(row, 2, QtWidgets.QTableWidgetItem(prenotazione.getOraInizio().strftime("%H:%M")))
             self.tableWidget.setItem(row, 3, QtWidgets.QTableWidgetItem(prenotazione.getOraFine().strftime("%H:%M")))
+            self.tableWidget.setItem(row, 4, QtWidgets.QTableWidgetItem(prenotazione.getSede()))
             row += 1

@@ -1,13 +1,10 @@
-import datetime
 import locale
-import os
 import sys
 import time
 import schedule
 
-from PyQt5.QtWidgets import QApplication, QMessageBox
+from PyQt5.QtWidgets import QApplication
 from Controller.gestioneSchedule import GestioneSchedule
-from Controller.gestioneStudenti import GestioneStudenti
 from View.Generale.login import Login
 
 schedule.every().day.at("00:00").do(GestioneSchedule.backup)
@@ -17,11 +14,8 @@ schedule.every().monday.at("00:00").do(GestioneSchedule.azzeraPrenotazioni)
 
 
 if __name__ == '__main__':
-    #GestioneStudenti.aggiungiUtente('Kristian', 'Likaj', '1097605', '12345678', datetime.date(2000, 10, 10))
-
-    print(conf_path)
     closing = False
-    locale.setlocale(locale.LC_ALL, "it")
+    locale.setlocale(locale.LC_ALL, "it_IT.utf8")
     app = QApplication(sys.argv)
     login = Login()
     login.stackedWidget.setCurrentIndex(0)

@@ -11,7 +11,8 @@ Inoltre è neccessario installare le seguenti librerie:
 + schedule
 + PyQt5
 
-### note
-Nel file [config.json](config.json) è possibile modificare la capienza delle aule adibite allo studio.
-Se si desidera registrarsi sulla piattaforma come amministratore occore inserire il codice di sicurezza 1234.
-Nel file [config.json](config.json) è possibile modificare tale codice identificato con "secureCode". 
+> **Warning**
+> Se si desidera registrarsi sulla piattaforma come amministratore occore inserire il codice di sicurezza **1234**.
+
+> **Note**
+> Nel file [config.json](config.json) è possibile modificare la capienza delle aule adibite allo studio e il codice di sicurezza per gli amministratori (identificato con "secureCode").

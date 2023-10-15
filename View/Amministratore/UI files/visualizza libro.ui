@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>550</width>
-    <height>627</height>
+    <height>642</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -24,7 +24,10 @@
     <normaloff>../Resources/logo.png</normaloff>../Resources/logo.png</iconset>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(255, 255, 255);</string>
+   <string notr="true">QDialog#Dialog {
+background-color: rgb(255, 255, 255);
+color:black;
+}</string>
   </property>
   <property name="modal">
    <bool>true</bool>

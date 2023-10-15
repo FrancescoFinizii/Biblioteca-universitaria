@@ -7,14 +7,26 @@
     <x>0</x>
     <y>0</y>
     <width>652</width>
-    <height>785</height>
+    <height>802</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(255, 255, 255);</string>
+   <string notr="true">QDialog#Dialog {
+background-color: rgb(255, 255, 255);
+color:black;
+}
+QPushButton {
+	border: 1px solid;
+	background-color:rgb(230, 230, 230);
+	border-radius: 5px;
+	border-color: rgb(0, 0, 0);
+}
+QPushButton:hover {
+	background-color: rgb(207, 207, 207);
+}</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -237,20 +249,13 @@
              <height>16777215</height>
             </size>
            </property>
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
            <property name="layoutDirection">
             <enum>Qt::LeftToRight</enum>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton#modificaProfiloButton {
-	border: 1px solid;
-	background-color:rgb(230, 230, 230);
-	border-radius: 5px;
-	border-color: rgb(0, 0, 0);
-}
-QPushButton#modificaProfiloButton:hover {
-	
-	background-color: rgb(207, 207, 207);
-}</string>
            </property>
            <property name="text">
             <string>Modifica dati personali</string>
@@ -261,8 +266,8 @@ QPushButton#modificaProfiloButton:hover {
            </property>
            <property name="iconSize">
             <size>
-             <width>24</width>
-             <height>24</height>
+             <width>20</width>
+             <height>20</height>
             </size>
            </property>
           </widget>
@@ -287,20 +292,13 @@ QPushButton#modificaProfiloButton:hover {
              <height>16777215</height>
             </size>
            </property>
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
            <property name="layoutDirection">
             <enum>Qt::LeftToRight</enum>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton#modificaPasswordButton {
-	border: 1px solid;
-	background-color:rgb(230, 230, 230);
-	border-radius: 5px;
-	border-color: rgb(0, 0, 0);
-}
-QPushButton#modificaPasswordButton:hover {
-	
-	background-color: rgb(207, 207, 207);
-}</string>
            </property>
            <property name="text">
             <string>Cambia password</string>
@@ -311,8 +309,8 @@ QPushButton#modificaPasswordButton:hover {
            </property>
            <property name="iconSize">
             <size>
-             <width>24</width>
-             <height>24</height>
+             <width>20</width>
+             <height>20</height>
             </size>
            </property>
           </widget>
@@ -337,20 +335,13 @@ QPushButton#modificaPasswordButton:hover {
              <height>16777215</height>
             </size>
            </property>
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
            <property name="layoutDirection">
             <enum>Qt::LeftToRight</enum>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton#eliminaAccountButton {
-	border: 1px solid;
-	background-color:rgb(230, 230, 230);
-	border-radius: 5px;
-	border-color: rgb(0, 0, 0);
-}
-QPushButton#eliminaAccountButton:hover {
-	
-	background-color: rgb(207, 207, 207);
-}</string>
            </property>
            <property name="text">
             <string>Elimina account</string>
@@ -361,8 +352,8 @@ QPushButton#eliminaAccountButton:hover {
            </property>
            <property name="iconSize">
             <size>
-             <width>24</width>
-             <height>24</height>
+             <width>20</width>
+             <height>20</height>
             </size>
            </property>
           </widget>
@@ -474,20 +465,8 @@ QPushButton#eliminaAccountButton:hover {
              <widget class="QPushButton" name="visualizzaPrestito1Button">
               <property name="font">
                <font>
-                <pointsize>12</pointsize>
+                <pointsize>10</pointsize>
                </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">QPushButton#visualizzaPrestito1Button {
-	border: 1px solid;
-	background-color:rgb(230, 230, 230);
-	border-radius: 5px;
-	border-color: rgb(0, 0, 0);
-}
-QPushButton#visualizzaPrestito1Button:hover {
-	
-	background-color: rgb(207, 207, 207);
-}</string>
               </property>
               <property name="text">
                <string>Visualizza</string>
@@ -508,20 +487,8 @@ QPushButton#visualizzaPrestito1Button:hover {
              <widget class="QPushButton" name="prorogaPrestito1Button">
               <property name="font">
                <font>
-                <pointsize>12</pointsize>
+                <pointsize>10</pointsize>
                </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">QPushButton#prorogaPrestito1Button {
-	border: 1px solid;
-	background-color:rgb(230, 230, 230);
-	border-radius: 5px;
-	border-color: rgb(0, 0, 0);
-}
-QPushButton#prorogaPrestito1Button:hover {
-	
-	background-color: rgb(207, 207, 207);
-}</string>
               </property>
               <property name="text">
                <string>Proroga</string>
@@ -550,20 +517,8 @@ QPushButton#prorogaPrestito1Button:hover {
              <widget class="QPushButton" name="visualizzaPrestito2Button">
               <property name="font">
                <font>
-                <pointsize>12</pointsize>
+                <pointsize>10</pointsize>
                </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">QPushButton#visualizzaPrestito2Button {
-	border: 1px solid;
-	background-color:rgb(230, 230, 230);
-	border-radius: 5px;
-	border-color: rgb(0, 0, 0);
-}
-QPushButton#visualizzaPrestito2Button:hover {
-	
-	background-color: rgb(207, 207, 207);
-}</string>
               </property>
               <property name="text">
                <string>Visualizza</string>
@@ -584,20 +539,8 @@ QPushButton#visualizzaPrestito2Button:hover {
              <widget class="QPushButton" name="prorogaPrestito2Button">
               <property name="font">
                <font>
-                <pointsize>12</pointsize>
+                <pointsize>10</pointsize>
                </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">QPushButton#prorogaPrestito2Button {
-	border: 1px solid;
-	background-color:rgb(230, 230, 230);
-	border-radius: 5px;
-	border-color: rgb(0, 0, 0);
-}
-QPushButton#prorogaPrestito2Button:hover {
-	
-	background-color: rgb(207, 207, 207);
-}</string>
               </property>
               <property name="text">
                <string>Proroga</string>
@@ -714,20 +657,8 @@ QPushButton#prorogaPrestito2Button:hover {
              <widget class="QPushButton" name="visualizzaPrenotazioneButton">
               <property name="font">
                <font>
-                <pointsize>12</pointsize>
+                <pointsize>10</pointsize>
                </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">QPushButton#visualizzaPrenotazioneButton {
-	border: 1px solid;
-	background-color:rgb(230, 230, 230);
-	border-radius: 5px;
-	border-color: rgb(0, 0, 0);
-}
-QPushButton#visualizzaPrenotazioneButton:hover {
-	
-	background-color: rgb(207, 207, 207);
-}</string>
               </property>
               <property name="text">
                <string>Visualizza</string>
@@ -748,20 +679,8 @@ QPushButton#visualizzaPrenotazioneButton:hover {
              <widget class="QPushButton" name="annullaPrenotazioneButton">
               <property name="font">
                <font>
-                <pointsize>12</pointsize>
+                <pointsize>10</pointsize>
                </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">QPushButton#annullaPrenotazioneButton {
-	border: 1px solid;
-	background-color:rgb(230, 230, 230);
-	border-radius: 5px;
-	border-color: rgb(0, 0, 0);
-}
-QPushButton#annullaPrenotazioneButton:hover {
-	
-	background-color: rgb(207, 207, 207);
-}</string>
               </property>
               <property name="text">
                <string>Annulla</string>

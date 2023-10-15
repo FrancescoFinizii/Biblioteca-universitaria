@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>538</width>
-    <height>180</height>
+    <height>189</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,7 +18,20 @@
     <normaloff>../Resources/logo.png</normaloff>../Resources/logo.png</iconset>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(255, 255, 255);</string>
+   <string notr="true">QDialog#Dialog {
+background-color: rgb(255, 255, 255);
+color.black;
+}
+QPushButton {
+	border: 1px solid;
+	background-color:rgb(230, 230, 230);
+	border-radius: 5px;
+	border-color: rgb(0, 0, 0);
+	padding: 5px 3px;
+}
+QPushButton:hover {
+	background-color: rgb(207, 207, 207);
+}</string>
   </property>
   <property name="modal">
    <bool>true</bool>
@@ -55,9 +68,6 @@
           <pointsize>12</pointsize>
          </font>
         </property>
-        <property name="styleSheet">
-         <string notr="true">border: 1px solid;</string>
-        </property>
         <item>
          <property name="text">
           <string>Libro</string>
@@ -80,19 +90,8 @@
        <widget class="QPushButton" name="confermaButton">
         <property name="font">
          <font>
-          <pointsize>12</pointsize>
+          <pointsize>10</pointsize>
          </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QPushButton#confermaButton {
-	border: 1px solid;
-	background-color:rgb(230, 230, 230);
-	border-radius: 5px;
-	border-color: rgb(0, 0, 0);
-}
-QPushButton#confermaButton:hover {
-	background-color: rgb(207, 207, 207);
-}</string>
         </property>
         <property name="text">
          <string>Conferma</string>
@@ -107,19 +106,8 @@ QPushButton#confermaButton:hover {
        <widget class="QPushButton" name="annullaButton">
         <property name="font">
          <font>
-          <pointsize>12</pointsize>
+          <pointsize>10</pointsize>
          </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QPushButton#annullaButton {
-	border: 1px solid;
-	background-color:rgb(230, 230, 230);
-	border-radius: 5px;
-	border-color: rgb(0, 0, 0);
-}
-QPushButton#annullaButton:hover {
-	background-color: rgb(207, 207, 207);
-}</string>
         </property>
         <property name="text">
          <string>Annulla</string>

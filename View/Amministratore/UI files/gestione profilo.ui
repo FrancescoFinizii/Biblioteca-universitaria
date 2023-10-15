@@ -14,7 +14,20 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(255, 255, 255);</string>
+   <string notr="true">Qwidget#Form {
+background-color: rgb(255, 255, 255);
+color:black;
+}
+QPushButton {
+	border: 1px solid;
+	background-color:rgb(230, 230, 230);
+	border-radius: 5px;
+	border-color: rgb(0, 0, 0);
+	padding:5px 3px;
+}
+QPushButton:hover {
+	background-color: rgb(207, 207, 207);
+}</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -277,20 +290,13 @@
              <height>16777215</height>
             </size>
            </property>
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
            <property name="layoutDirection">
             <enum>Qt::LeftToRight</enum>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton#modificaProfiloButton {
-	border: 1px solid;
-	background-color:rgb(230, 230, 230);
-	border-radius: 5px;
-	border-color: rgb(0, 0, 0);
-}
-QPushButton#modificaProfiloButton:hover {
-	
-	background-color: rgb(207, 207, 207);
-}</string>
            </property>
            <property name="text">
             <string>Modifica dati personali</string>
@@ -301,8 +307,8 @@ QPushButton#modificaProfiloButton:hover {
            </property>
            <property name="iconSize">
             <size>
-             <width>24</width>
-             <height>24</height>
+             <width>20</width>
+             <height>20</height>
             </size>
            </property>
           </widget>
@@ -327,20 +333,13 @@ QPushButton#modificaProfiloButton:hover {
              <height>16777215</height>
             </size>
            </property>
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
            <property name="layoutDirection">
             <enum>Qt::LeftToRight</enum>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton#modificaPasswordButton {
-	border: 1px solid;
-	background-color:rgb(230, 230, 230);
-	border-radius: 5px;
-	border-color: rgb(0, 0, 0);
-}
-QPushButton#modificaPasswordButton:hover {
-	
-	background-color: rgb(207, 207, 207);
-}</string>
            </property>
            <property name="text">
             <string>Cambia password</string>
@@ -351,8 +350,8 @@ QPushButton#modificaPasswordButton:hover {
            </property>
            <property name="iconSize">
             <size>
-             <width>24</width>
-             <height>24</height>
+             <width>20</width>
+             <height>20</height>
             </size>
            </property>
           </widget>
@@ -377,20 +376,13 @@ QPushButton#modificaPasswordButton:hover {
              <height>16777215</height>
             </size>
            </property>
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
            <property name="layoutDirection">
             <enum>Qt::LeftToRight</enum>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton#eliminaAccountButton {
-	border: 1px solid;
-	background-color:rgb(230, 230, 230);
-	border-radius: 5px;
-	border-color: rgb(0, 0, 0);
-}
-QPushButton#eliminaAccountButton:hover {
-	
-	background-color: rgb(207, 207, 207);
-}</string>
            </property>
            <property name="text">
             <string>Elimina account</string>
@@ -401,8 +393,8 @@ QPushButton#eliminaAccountButton:hover {
            </property>
            <property name="iconSize">
             <size>
-             <width>24</width>
-             <height>24</height>
+             <width>20</width>
+             <height>20</height>
             </size>
            </property>
           </widget>

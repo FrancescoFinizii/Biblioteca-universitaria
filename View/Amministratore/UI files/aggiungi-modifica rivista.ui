@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>550</width>
-    <height>704</height>
+    <height>774</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -24,7 +24,20 @@
     <normaloff>../Resources/logo.png</normaloff>../Resources/logo.png</iconset>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(255, 255, 255);</string>
+   <string notr="true">QDialog#Dialog {
+background-color: rgb(255, 255, 255);
+color:black;
+}
+QPushButton {
+	border: 1px solid;
+	background-color:rgb(230, 230, 230);
+	border-radius: 5px;
+	border-color: rgb(0, 0, 0);
+	padding: 5px 3px;
+}
+QPushButton:hover {
+	background-color: rgb(207, 207, 207);
+}</string>
   </property>
   <property name="modal">
    <bool>true</bool>
@@ -58,7 +71,7 @@
        <widget class="QLabel" name="errorLabel">
         <property name="font">
          <font>
-          <pointsize>10</pointsize>
+          <pointsize>12</pointsize>
          </font>
         </property>
         <property name="styleSheet">
@@ -241,7 +254,7 @@
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">border: 1px solid;</string>
+         <string notr="true"/>
         </property>
         <item>
          <property name="text">
@@ -565,7 +578,7 @@
        <widget class="QPushButton" name="confermaButton">
         <property name="font">
          <font>
-          <pointsize>12</pointsize>
+          <pointsize>10</pointsize>
          </font>
         </property>
         <property name="styleSheet">
@@ -592,7 +605,7 @@ QPushButton#confermaButton:hover {
        <widget class="QPushButton" name="annullaButton">
         <property name="font">
          <font>
-          <pointsize>12</pointsize>
+          <pointsize>10</pointsize>
          </font>
         </property>
         <property name="styleSheet">

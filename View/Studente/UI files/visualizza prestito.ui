@@ -18,7 +18,19 @@
     <normaloff>../../Amministratore/Resources/logo.png</normaloff>../../Amministratore/Resources/logo.png</iconset>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(255, 255, 255);</string>
+   <string notr="true">QDialog#Dialog {
+background-color: rgb(255, 255, 255);
+color:black;
+}
+QPushButton {
+	border: 1px solid;
+	background-color:rgb(230, 230, 230);
+	border-radius: 5px;
+	border-color: rgb(0, 0, 0);
+}
+QPushButton:hover {
+	background-color: rgb(207, 207, 207);
+}</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -218,19 +230,6 @@
       </item>
       <item>
        <widget class="QPushButton" name="visualizzaDocumentoButton">
-        <property name="styleSheet">
-         <string notr="true">QPushButton#visualizzaDocumentoButton {
-	border: 1px solid;
-	background-color:rgb(230, 230, 230);
-	border-radius: 5px;
-	border-color: rgb(0, 0, 0);
-}
-QPushButton#visualizzaDocumentoButton:hover {
-	
-	background-color: rgb(207, 207, 207);
-}
-</string>
-        </property>
         <property name="text">
          <string/>
         </property>
@@ -274,19 +273,8 @@ QPushButton#visualizzaDocumentoButton:hover {
         </property>
         <property name="font">
          <font>
-          <pointsize>12</pointsize>
+          <pointsize>10</pointsize>
          </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QPushButton#chiudiButton {
-	background-color:rgb(230, 230, 230);
-	border-radius: 10px;
-	border-color: rgb(0, 0, 0);
-	border: 1px solid;
-}
-QPushButton#chiudiButton:hover {
-	background-color: rgb(207, 207, 207);
-}</string>
         </property>
         <property name="text">
          <string>Chiudi</string>

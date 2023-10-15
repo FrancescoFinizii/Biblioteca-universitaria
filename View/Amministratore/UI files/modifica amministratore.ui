@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>390</height>
+    <height>411</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,7 +18,18 @@
     <normaloff>../Resources/logo.png</normaloff>../Resources/logo.png</iconset>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(255, 255, 255);</string>
+   <string notr="true">QDialog#Dialog {
+background-color: rgb(255, 255, 255);
+}
+QPushButton {
+	border: 1px solid;
+	background-color:rgb(230, 230, 230);
+	border-radius: 5px;
+	border-color: rgb(0, 0, 0);
+}
+QPushButton:hover {
+	background-color: rgb(207, 207, 207);
+}</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -49,7 +60,7 @@
        <widget class="QLabel" name="errorLabel">
         <property name="font">
          <font>
-          <pointsize>10</pointsize>
+          <pointsize>12</pointsize>
          </font>
         </property>
         <property name="styleSheet">
@@ -208,10 +219,6 @@
           <pointsize>12</pointsize>
          </font>
         </property>
-        <property name="styleSheet">
-         <string notr="true">border: 1px solid;
-background-color:None;</string>
-        </property>
         <property name="readOnly">
          <bool>false</bool>
         </property>
@@ -277,9 +284,6 @@ background-color:None;</string>
           <pointsize>12</pointsize>
          </font>
         </property>
-        <property name="styleSheet">
-         <string notr="true">border: 1px solid;</string>
-        </property>
         <property name="currentText">
          <string notr="true">Bibliotecario/a</string>
         </property>
@@ -325,17 +329,6 @@ background-color:None;</string>
           <pointsize>12</pointsize>
          </font>
         </property>
-        <property name="styleSheet">
-         <string notr="true">QPushButton#modificaButton {
-	border: 1px solid;
-	background-color:rgb(230, 230, 230);
-	border-radius: 5px;
-	border-color: rgb(0, 0, 0);
-}
-QPushButton#modificaButton:hover {
-	background-color: rgb(207, 207, 207);
-}</string>
-        </property>
         <property name="text">
          <string>Modifica</string>
         </property>
@@ -351,17 +344,6 @@ QPushButton#modificaButton:hover {
          <font>
           <pointsize>12</pointsize>
          </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QPushButton#annullaButton {
-	border: 1px solid;
-	background-color:rgb(230, 230, 230);
-	border-radius: 5px;
-	border-color: rgb(0, 0, 0);
-}
-QPushButton#annullaButton:hover {
-	background-color: rgb(207, 207, 207);
-}</string>
         </property>
         <property name="text">
          <string>Annulla</string>

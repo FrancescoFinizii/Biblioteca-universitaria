@@ -134,6 +134,22 @@ border: None</string>
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+	text-align:left;
+	padding:5px;
+	border-top-left-radius:20px;
+	border: 2px solid;
+	border-color: rgb(255, 255, 255);
+	border-right: None;
+}
+QPushButton:hover{	
+	background-color: rgb(255, 255, 255);
+}
+QPushButton:checked{	
+	background-color: rgb(255, 255, 255);
+}</string>
+            </property>
             <property name="frameShape">
              <enum>QFrame::StyledPanel</enum>
             </property>
@@ -174,22 +190,6 @@ border: None</string>
                 <font>
                  <pointsize>12</pointsize>
                 </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">QPushButton#homeButton{
-	text-align:left;
-	padding:5px;
-	border-top-left-radius:20px;
-	border: 2px solid;
-	border-color: rgb(255, 255, 255);
-	border-right: None;
-}
-QPushButton#homeButton:hover{	
-	background-color: rgb(255, 255, 255);
-}
-QPushButton#homeButton:checked{	
-	background-color: rgb(255, 255, 255);
-}</string>
                </property>
                <property name="text">
                 <string>HOME</string>
@@ -240,23 +240,6 @@ QPushButton#homeButton:checked{
                  <pointsize>12</pointsize>
                 </font>
                </property>
-               <property name="styleSheet">
-                <string notr="true">QPushButton#catalogoButton{
-	text-align:left;
-	padding:5px;
-	border-top-left-radius:20px;
-	border: 2px solid;
-	border-color: rgb(255, 255, 255);
-	border-right: None;
-}
-QPushButton#catalogoButton:hover{	
-	background-color: rgb(255, 255, 255);
-}
-QPushButton#catalogoButton:checked{	
-	background-color: rgb(255, 255, 255);
-}
-</string>
-               </property>
                <property name="text">
                 <string>CATALOGO</string>
                </property>
@@ -288,22 +271,6 @@ QPushButton#catalogoButton:checked{
                  <pointsize>12</pointsize>
                 </font>
                </property>
-               <property name="styleSheet">
-                <string notr="true">QPushButton#prenotazioniButton{
-	text-align:left;
-	padding:5px;
-	border-top-left-radius:20px;
-	border: 2px solid;
-	border-color: rgb(255, 255, 255);
-	border-right: None;
-}
-QPushButton#prenotazioniButton:hover{	
-	background-color: rgb(255, 255, 255);
-}
-QPushButton#prenotazioniButton:checked{	
-	background-color: rgb(255, 255, 255);
-}</string>
-               </property>
                <property name="text">
                 <string>PRENOTAZIONI</string>
                </property>
@@ -331,22 +298,6 @@ QPushButton#prenotazioniButton:checked{
                 <font>
                  <pointsize>12</pointsize>
                 </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">QPushButton#profiloButton{
-	text-align:left;
-	padding:5px;
-	border-top-left-radius:20px;
-	border: 2px solid;
-	border-color: rgb(255, 255, 255);
-	border-right: None;
-}
-QPushButton#profiloButton:hover{	
-	background-color: rgb(255, 255, 255);
-}
-QPushButton#profiloButton:checked{	
-	background-color: rgb(255, 255, 255);
-}</string>
                </property>
                <property name="text">
                 <string>PROFILO</string>
@@ -376,22 +327,6 @@ QPushButton#profiloButton:checked{
                  <pointsize>12</pointsize>
                 </font>
                </property>
-               <property name="styleSheet">
-                <string notr="true">QPushButton#logoutButton{
-	text-align:left;
-	padding:5px;
-	border-top-left-radius:20px;
-	border: 2px solid;
-	border-color: rgb(255, 255, 255);
-	border-right: None;
-}
-QPushButton#logoutButton:hover{	
-	background-color: rgb(255, 255, 255);
-}
-QPushButton#logoutButton:checked{	
-	background-color: rgb(255, 255, 255);
-}</string>
-               </property>
                <property name="text">
                 <string>LOGOUT</string>
                </property>
@@ -419,22 +354,6 @@ QPushButton#logoutButton:checked{
                 <font>
                  <pointsize>12</pointsize>
                 </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">QPushButton#exitButton{
-	text-align:left;
-	padding:5px;
-	border-top-left-radius:20px;
-	border: 2px solid;
-	border-color: rgb(255, 255, 255);
-	border-right: None;
-}
-QPushButton#exitButton:hover{	
-	background-color: rgb(255, 255, 255);
-}
-QPushButton#exitButton:checked{	
-	background-color: rgb(255, 255, 255);
-}</string>
                </property>
                <property name="text">
                 <string>EXIT</string>
@@ -475,6 +394,12 @@ QPushButton#exitButton:checked{
        <number>0</number>
       </property>
       <widget class="QWidget" name="homePage_2">
+       <property name="styleSheet">
+        <string notr="true">QWidget#homePage_2 {
+	background-color: rgb(255, 255, 255);
+	color:black;
+}</string>
+       </property>
        <layout class="QVBoxLayout" name="verticalLayout_17">
         <item>
          <widget class="QWidget" name="widget_4" native="true">

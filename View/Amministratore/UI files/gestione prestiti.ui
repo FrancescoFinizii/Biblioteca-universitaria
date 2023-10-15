@@ -20,7 +20,10 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(255, 255, 255);</string>
+   <string notr="true">QWidget#Form  {
+background-color: rgb(255, 255, 255);
+color:black;
+}</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -68,8 +71,10 @@
    <item>
     <widget class="QWidget" name="widget_4" native="true">
      <property name="styleSheet">
-      <string notr="true">border: 2px solid;
+      <string notr="true">QWidget#widget_4 {
+border: 2px solid;
 border-radius: 25px;
+}
 </string>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -157,10 +162,13 @@ border-radius: 25px;
           <height>30</height>
          </size>
         </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
         <property name="styleSheet">
-         <string notr="true">border: 1px solid;
-border-radius:None;
-</string>
+         <string notr="true"/>
         </property>
         <item>
          <property name="text">
@@ -238,7 +246,7 @@ border-radius:None;
           <widget class="QPushButton" name="concludiPrestitoButton">
            <property name="font">
             <font>
-             <pointsize>11</pointsize>
+             <pointsize>10</pointsize>
             </font>
            </property>
            <property name="styleSheet">
@@ -247,6 +255,7 @@ border-radius:None;
 	background-color:rgb(230, 230, 230);
 	border-radius: 5px;
 	border-color: rgb(0, 0, 0);
+	padding:5px 3px;
 }
 QPushButton#concludiPrestitoButton:hover {
 	background-color: rgb(207, 207, 207);

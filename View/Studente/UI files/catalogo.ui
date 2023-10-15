@@ -23,7 +23,7 @@ QPushButton {
 	background-color:rgb(230, 230, 230);
 	border-radius: 5px;
 	border-color: rgb(0, 0, 0);
-padding: 5px 3px;
+	padding: 5px 3px;
 }
 QPushButton:hover {
 	background-color: rgb(207, 207, 207);
@@ -173,6 +173,9 @@ border-radius: 25px;
              <pointsize>10</pointsize>
             </font>
            </property>
+           <property name="styleSheet">
+            <string notr="true">color:black;</string>
+           </property>
            <item>
             <property name="text">
              <string>Titolo</string>
@@ -209,6 +212,9 @@ border-radius: 25px;
             <font>
              <pointsize>10</pointsize>
             </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color:black;</string>
            </property>
            <item>
             <property name="text">
@@ -263,6 +269,9 @@ border-radius: 25px;
             <font>
              <pointsize>10</pointsize>
             </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">	color:black;</string>
            </property>
            <item>
             <property name="text">

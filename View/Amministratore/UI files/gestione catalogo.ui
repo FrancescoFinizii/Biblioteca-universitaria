@@ -165,7 +165,7 @@ border-radius: 25px;}
             </font>
            </property>
            <property name="styleSheet">
-            <string notr="true"/>
+            <string notr="true">	color:black;</string>
            </property>
            <item>
             <property name="text">
@@ -205,7 +205,7 @@ border-radius: 25px;}
             </font>
            </property>
            <property name="styleSheet">
-            <string notr="true"/>
+            <string notr="true">	color:black;</string>
            </property>
            <item>
             <property name="text">
@@ -262,7 +262,7 @@ border-radius: 25px;}
             </font>
            </property>
            <property name="styleSheet">
-            <string notr="true"/>
+            <string notr="true">	color:black;</string>
            </property>
            <item>
             <property name="text">
@@ -309,25 +309,55 @@ border-radius: 25px;}
          <property name="text">
           <string>Titolo</string>
          </property>
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
         </column>
         <column>
          <property name="text">
           <string>Autore</string>
+         </property>
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
          </property>
         </column>
         <column>
          <property name="text">
           <string>ID</string>
          </property>
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
         </column>
         <column>
          <property name="text">
           <string>Disponibilità</string>
          </property>
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
         </column>
         <column>
          <property name="text">
           <string>Tipologia</string>
+         </property>
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
          </property>
         </column>
        </widget>

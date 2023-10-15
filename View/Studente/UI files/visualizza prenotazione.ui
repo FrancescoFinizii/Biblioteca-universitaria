@@ -256,6 +256,7 @@
 	border-radius: 10px;
 	border-color: rgb(0, 0, 0);
 	border: 1px solid;
+	padding: 5px 3px;
 }
 QPushButton#chiudiButton:hover {
 	background-color: rgb(207, 207, 207);

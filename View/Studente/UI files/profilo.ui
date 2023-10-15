@@ -23,6 +23,7 @@ QPushButton {
 	background-color:rgb(230, 230, 230);
 	border-radius: 5px;
 	border-color: rgb(0, 0, 0);
+	padding:5px 3px;
 }
 QPushButton:hover {
 	background-color: rgb(207, 207, 207);
@@ -468,6 +469,11 @@ QPushButton:hover {
                 <pointsize>10</pointsize>
                </font>
               </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton#visualizzaPrestito1Button {
+	padding: 3px;
+}</string>
+              </property>
               <property name="text">
                <string>Visualizza</string>
               </property>
@@ -477,8 +483,8 @@ QPushButton:hover {
               </property>
               <property name="iconSize">
                <size>
-                <width>24</width>
-                <height>24</height>
+                <width>20</width>
+                <height>20</height>
                </size>
               </property>
              </widget>
@@ -520,6 +526,11 @@ QPushButton:hover {
                 <pointsize>10</pointsize>
                </font>
               </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton#visualizzaPrestito2Button {
+	padding: 3px;
+}</string>
+              </property>
               <property name="text">
                <string>Visualizza</string>
               </property>
@@ -529,8 +540,8 @@ QPushButton:hover {
               </property>
               <property name="iconSize">
                <size>
-                <width>24</width>
-                <height>24</height>
+                <width>20</width>
+                <height>20</height>
                </size>
               </property>
              </widget>
@@ -660,6 +671,11 @@ QPushButton:hover {
                 <pointsize>10</pointsize>
                </font>
               </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton#visualizzaPrenotazioneButton {
+	padding: 3px;
+}</string>
+              </property>
               <property name="text">
                <string>Visualizza</string>
               </property>
@@ -669,8 +685,8 @@ QPushButton:hover {
               </property>
               <property name="iconSize">
                <size>
-                <width>24</width>
-                <height>24</height>
+                <width>20</width>
+                <height>20</height>
                </size>
               </property>
              </widget>

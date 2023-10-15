@@ -68,6 +68,9 @@ QPushButton:hover {
           <pointsize>12</pointsize>
          </font>
         </property>
+        <property name="styleSheet">
+         <string notr="true">	color:black;</string>
+        </property>
         <item>
          <property name="text">
           <string>Libro</string>

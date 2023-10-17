@@ -142,6 +142,7 @@ border: None</string>
 	border: 2px solid;
 	border-color: rgb(255, 255, 255);
 	border-right: None;
+	color:black;
 }
 QPushButton:hover{	
 	background-color: rgb(255, 255, 255);
@@ -503,6 +504,9 @@ QPushButton:checked{
        </property>
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
+         <property name="styleSheet">
+          <string notr="true">color:black;</string>
+         </property>
          <property name="currentIndex">
           <number>0</number>
          </property>
@@ -510,7 +514,6 @@ QPushButton:checked{
           <property name="styleSheet">
            <string notr="true">QWidget#homePage {
 background-color: rgb(255, 255, 255);
-color:black;
 }</string>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_7">

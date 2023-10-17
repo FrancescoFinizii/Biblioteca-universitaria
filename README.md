@@ -12,15 +12,15 @@ Per ulteriori informazioni sul progetto è disponibile una documentazione dettag
 ## Installazione
 Per poter eseguire il software occore aver installato l'**interprete** python (3.10) ed impostare come predefinita la lingua italiana nel proprio sistema operativo. 
 
-Su linux è possibile settare il locale utilizzando i seguenti commandi: 
+Su linux è possibile settare il locale utilizzando il seguente commando: 
 
-- `sudo update-locale LANG=LANG=it_IT.UTF-8 LANGUAGE`
+- `sudo dpkg-reconfigure locales`
+- selezionare it_IT.UTF-8 e confermare.
 
-- `sudo update-locale LC_TIME=it_IT.UTF-8`
 
 Inoltre è neccessario installare le seguenti librerie:
-+ schedule
-+ PyQt5
++ schedule (`pip install schedule`)
++ PyQt5 (`pip install PyQt5`)
 
 
 > **Note**

@@ -24,7 +24,7 @@ Inoltre è neccessario installare le seguenti librerie:
 
 
 > **Note**
-> Nel file [config.json](config.json) è possibile modificare la capienza delle aule adibite allo studio e il codice di sicurezza per gli amministratori (identificato con "secureCode").
+> Nel file <a href="config.json">config.json</a> è possibile modificare la capienza delle aule adibite allo studio e il codice di sicurezza per gli amministratori (identificato con "secureCode").
 
 > **Warning**
 > Se si desidera registrarsi sulla piattaforma come amministratore occore inserire il codice di sicurezza **1234**.

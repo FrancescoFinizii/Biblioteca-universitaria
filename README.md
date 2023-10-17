@@ -34,9 +34,9 @@ Inoltre è neccessario installare le seguenti librerie:
 Per poter testare il sistema sono stati forniti di default un amministratore e uno studente. 
 
 Puoi accedere come **amministratore** usando le seguenti credenziali:
-- **Matricola:** `0987654321`
+- **Matricola:** `987654321`
 - **Password:** `qwertyuiop`
 
 Puoi accedere come **studente** usando le seguenti credenziali:
-- **Matricola:** `1234567890`
+- **Matricola:** `123456789`
 - **Password:** `qwertyuiop`

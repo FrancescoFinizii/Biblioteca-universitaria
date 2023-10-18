@@ -212,7 +212,7 @@ p, li { white-space: pre-wrap; }
          <bool>true</bool>
         </property>
         <property name="styleSheet">
-         <string notr="true"/>
+         <string notr="true">background-color:none;</string>
         </property>
         <property name="locale">
          <locale language="Italian" country="Italy"/>

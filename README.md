@@ -14,8 +14,8 @@ Per poter eseguire il software occore aver installato l'**interprete** python (3
 
 Su linux è possibile settare il locale utilizzando il seguente commando: 
 
-- `sudo dpkg-reconfigure locales`
-- selezionare it_IT.UTF-8 e confermare.
+- `sudo locale-gen it_IT.UTF-8`
+- `sudo update-locale LANG=it_IT.UTF-8` or `sudo localectl set-locale LANG=it_IT.UTF-8`
 
 
 Inoltre è neccessario installare le seguenti librerie:
